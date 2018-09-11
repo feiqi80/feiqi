@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import post from "./httpUtil";
+import http from "./httpUtil";
 
 // 显示组件
 function BoilingVerdict(props) {
@@ -86,9 +86,13 @@ class CalcTemp extends Component {
   }
 
   onQuery() {
-    let url = "test/home";
-    post(url, {id: 200}).then(res => {
-      console.log(res);
+    let opt = {
+      url: "test/home",
+      method: "post",
+      // headers: {}
+    }
+    http(opt, {id: 100}, (d) => {
+      console.log(d);
     });
   }
 

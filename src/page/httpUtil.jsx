@@ -7,26 +7,35 @@ function objToParam(obj) {
 	return result ? result.substring(1) : result;
 }
 
-function post(url, param, callback) {
-  return fetch(url, {
-		method: 'post',
-		mode:'cors',
-		headers: {
-			'Accept': 'application/json',
-      'Content-Type': 'application/json',
-		},
-		body: JSON.stringify(param)
+function http(options, data, callback) {
+	let type = {"content-type": "application/json"},
+			headers = (() => {
+				if (!options.headers) {
+					options.headers = type;
+				} else if (!options.headers["content-type"]) {
+					options.headers["content-type"] = "application/json"
+				}
+				return options.headers;
+			})();
+  fetch(options.url ? options.url : "", {
+		method: options.method ? options.method : "post",
+		mode: options.mode ? options.mode : "cors",
+		cache: options.cache ? options.cache : "default",
+		credentials: options.credentials ? options.credentials : "omit",
+		redirect: options.redirect ? options.redirect : "follow",
+		referrer: options.referrer ? options.referrer : "client",
+		headers: headers,
+		body: JSON.stringify(data)
 	}).then(res => {
 		console.log(res);
 		if (res.status !== 200) {
 			alert("网络有问题！");
 			return;
-		} else {
-			return res.json();
 		}
+		return res.json();
+	}).then(d => {
+		callback(d);
 	});
 }
 
-export default post;
-
-
+export default http;
