@@ -30,12 +30,14 @@ function http(options, data, callback) {
 		console.log(res);
 		if (res.status !== 200) {
 			alert("网络有问题！");
-			return;
+			return false;
 		}
 		return res.json();
 	}).then(d => {
-		callback(d);
+			callback(d);
 	});
+	
+	
 }
 
 export default http;
