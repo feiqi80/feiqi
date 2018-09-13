@@ -16,8 +16,9 @@ function http(options, data, callback) {
 					options.headers["content-type"] = "application/json"
 				}
 				return options.headers;
-			})();
-  fetch(options.url ? options.url : "", {
+			})(),
+			async = typeof(options.async) === "boolean" ? options.async : true;
+  let result = fetch(options.url ? options.url : "", {
 		method: options.method ? options.method : "post",
 		mode: options.mode ? options.mode : "cors",
 		cache: options.cache ? options.cache : "default",
@@ -33,11 +34,14 @@ function http(options, data, callback) {
 			return false;
 		}
 		return res.json();
-	}).then(d => {
+	})
+	if (async) {
+		result.then(d => {
 			callback(d);
-	});
-	
-	
+		});
+	} else {
+		return result;
+	}
 }
 
 export default http;

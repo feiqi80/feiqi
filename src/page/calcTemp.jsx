@@ -89,10 +89,15 @@ class CalcTemp extends Component {
     let opt = {
       url: "test/home",
       method: "post",
-      // headers: {}
+      async: false
     }
-    http(opt, {id: 100}, (d) => {
-      console.log(d);
+    console.log(typeof(opt.async));
+    http(opt, {id: 100}, () => {}).then(data => {
+      if (data) {
+        return http(opt, {id: data.number}, () => {});
+      }
+    }).then(data => {
+      console.log(data);
     });
   }
 
