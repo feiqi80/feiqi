@@ -10,7 +10,7 @@ class Roots extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className="section-right">
           <Route exact path="/" component={Main} />
           <Route exact path="/intro/:id" component={Intro} />
           <Route exact path="/game" component={Game} />
