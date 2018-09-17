@@ -1,12 +1,3 @@
-function objToParam(obj) {
-  let result = "";
-	for(let key in obj){
-		result += "&" + key + "=" + encodeURIComponent(obj[key]);
-	}	
-  console.log(result);
-	return result ? result.substring(1) : result;
-}
-
 function http(options, data, callback) {
 	let type = {"content-type": "application/json"},
 			headers = (() => {

@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
 class Header extends Component {
-    render() {
-        return (
-            <div className="top-bar">
+  render() {
+    return (
+      <div className="top-bar">
 
-            </div>
-        )
-    }
+      </div>
+    )
+  }
 }
 
 export default Header;

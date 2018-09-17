@@ -5,17 +5,17 @@ import Roots from "../route/roots";
 import "./layout.css";
 
 class Layout extends Component {
-    render() {
-        return(
-            <div className="layout">
-                <Header />
-                <div className="section">
-                    <Leftbar />
-                    <Roots />
-                </div>
-            </div>            
-        )
-    }
+  render() {
+    return (
+      <div className="layout">
+        <Header />
+        <div className="section">
+          <Leftbar />
+          <Roots />
+        </div>
+      </div>
+    )
+  }
 }
 
 export default Layout;

@@ -1,33 +1,33 @@
 .top-bar {
-    width: 100%;
-    height: 50px;
-    background: #006cb8;
+  width: 100%;
+  height: 50px;
+  background: #006cb8;
 }
 
 .section {
-    width: 100%;
-    height: calc(100% - 50px);
+  width: 100%;
+  height: calc(100% - 50px);
 }
 
 .section-left {
-    width: 120px;
-    height: 100%;
-    background: #ddd;
-    overflow: auto;
-    white-space: nowrap;
-    float: left;
+  width: 120px;
+  height: 100%;
+  background: #ddd;
+  overflow: auto;
+  white-space: nowrap;
+  float: left;
 }
 
 .section-right {
-    width: calc(100% - 120px);
-    height: 100%;
-    float: left;
+  width: calc(100% - 120px);
+  height: 100%;
+  float: left;
 }
 
 .active {
-    color: #fff;
-    background: #333;
+  color: #fff;
+  background: #333;
 }
 .child-menu {
-    padding-left: 20px;
+  padding-left: 20px;
 }
