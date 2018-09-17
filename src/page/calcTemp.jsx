@@ -102,7 +102,8 @@ class CalcTemp extends Component {
   }
 
   componentDidMount() {
-    this.onQuery();
+    // this.onQuery();
+    console.log("进入页面");
   }
 
   render() {

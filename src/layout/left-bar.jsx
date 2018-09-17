@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 
 class Leftbar extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    console.log(props);
     this.state = {
       menuList: [
         { id: 1, name: "菜单1", url: "", isExpand: false, children: [
@@ -13,6 +15,12 @@ class Leftbar extends Component {
         { id: 4, name: "菜单3", isActive: false, url: "/game" }
       ]
     }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
+    const locationChanged = nextProps.location !== this.props.location;
+    console.log(locationChanged);
   }
     
   expandMenu = (obj, e) => {
@@ -27,7 +35,12 @@ class Leftbar extends Component {
   getSelectMenu(list, id) {
     let arr = list.map((one, i) => {
       if (one.id === id) {
-        one.children ? one.isExpand = !one.isExpand : one.isActive = true;
+        if (one.children) {
+          one.isExpand = !one.isExpand; 
+        } else {
+          one.isActive = true;
+          this.props.history.replace(one.url);
+        }
       } else {
         one.children ? this.getSelectMenu(one.children, id) : one.isActive = false;
       }
@@ -72,4 +85,4 @@ class MenuItem extends Component {
   }
 }
 
-export default Leftbar;
+export default withRouter(Leftbar);

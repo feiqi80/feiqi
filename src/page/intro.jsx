@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
 
 class Intro extends Component {
 
@@ -55,14 +54,7 @@ class Intro extends Component {
     const clickBtn = <button className="btn" onClick={() => this.changeCid(4)}>点击</button>; 
 
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Reactxxoo</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="App">        
         <div>公司名称： {this.state.companyName}</div>
         <div>公司id： {this.state.cid}</div>
         <button className="btn" onClick={() => this.changeCid(3)}>点击</button>
