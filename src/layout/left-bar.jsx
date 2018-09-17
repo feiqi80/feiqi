@@ -5,12 +5,12 @@ class Leftbar extends Component {
     super();
     this.state = {
       menuList: [
-        { id: 1, name: "菜单1", url: "", isExpand: false, children: [
+        {id: 1, name: "菜单1", url: "", isExpand: false, children: [
             {id: 2, name: "菜单1的子菜单", isActive: false, url: "/intro/:id"},
           ]
         },
-        { id: 3, name: "菜单2", isActive: false, url: "/calc" },
-        { id: 4, name: "菜单3", isActive: false, url: "/game" }
+        {id: 3, name: "菜单2", isActive: false, url: "/calc"},
+        {id: 4, name: "菜单3", isActive: false, url: "/game"}
       ]
     }
   }
