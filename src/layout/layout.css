@@ -10,24 +10,51 @@
 }
 
 .section-left {
-  width: 120px;
+  width: 140px;
   height: 100%;
-  background: #ddd;
+  background: #3c4a57;
   overflow: auto;
   white-space: nowrap;
   float: left;
+  font-size: 15px;
+  padding-top: 30px;
+  color: #adb3b8;
+}
+
+.has-child, .no-child, .child-menu {
+  height: 40px;
+  line-height: 40px;
+  cursor: pointer;
+}
+.section-left .no-child:hover {
+  background: #333;
+  color: #fff;
+}
+
+.section-left .has-child {
+  padding-left: 20px;
 }
 
 .section-right {
-  width: calc(100% - 120px);
+  width: calc(100% - 140px);
   height: 100%;
   float: left;
 }
 
 .active {
   color: #fff;
-  background: #333;
+  background: #677e94;
+  border-left: solid 5px #57c6f8;
 }
+
+.active.child-menu {
+  padding-left: 30px;
+}
+
+.active.no-child {
+  padding-left: -2px;
+}
+
 .child-menu {
-  padding-left: 20px;
+  padding-left: 35px;
 }

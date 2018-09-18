@@ -118,9 +118,7 @@ class Leftbar extends Component {
 
   render() {
     return (
-      <div className="section-left">
-        <MenuItem list={this.state.menuList} onClickMenu={this.clickMenu} />
-      </div>
+      <MenuItem list={this.state.menuList} onClickMenu={this.clickMenu} />
     )
   }
 }
@@ -135,8 +133,10 @@ class MenuItem extends Component {
   render() {
     const menu = this.list.map((one, i) => {
       return (
-        <div key={i} className={(one.isActive ? "active" : "") + (one.isChildMenu ? " child-menu" : "")} onClick={(e) => this.props.onClickMenu(one, e)}>
-          {one.name}
+        <div key={i} className={(one.isActive ? "active" : "") + (one.isChildMenu ? " child-menu" : "") + (one.children ? "" : " no-child")} onClick={(e) => this.props.onClickMenu(one, e)}>
+          <div className={one.isChildMenu ? "" : "has-child"}>
+            {one.name}
+          </div>
           {one.isExpand 
             ?
             <div>
