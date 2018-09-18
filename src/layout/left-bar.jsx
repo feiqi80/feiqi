@@ -133,13 +133,13 @@ class MenuItem extends Component {
   render() {
     const menu = this.list.map((one, i) => {
       return (
-        <div key={i} className={(one.isActive ? "active" : "") + (one.isChildMenu ? " child-menu" : "") + (one.children ? "" : " no-child")} onClick={(e) => this.props.onClickMenu(one, e)}>
-          <div className={one.isChildMenu ? "" : "has-child"}>
+        <div key={i} className={(one.isActive ? "active" : "") + (one.isChildMenu ? " is-child" : " ") + (one.children ? " " : " no-child")} onClick={(e) => this.props.onClickMenu(one, e)}>
+          <p>
             {one.name}
-          </div>
+          </p>
           {one.isExpand 
             ?
-            <div>
+            <div className="sub-menu">
               <MenuItem list={one.children} onClickMenu={this.props.onClickMenu} />
             </div>
             : null

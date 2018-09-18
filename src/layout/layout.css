@@ -21,18 +21,24 @@
   color: #adb3b8;
 }
 
-.has-child, .no-child, .child-menu {
-  height: 40px;
-  line-height: 40px;
-  cursor: pointer;
+p {
+  margin: 0 0 0 20px;
+  height: 35px;
+  line-height: 35px;
+  cursor: pointer; 
 }
+
 .section-left .no-child:hover {
   background: #333;
   color: #fff;
 }
 
-.section-left .has-child {
-  padding-left: 20px;
+.sub-menu {
+  background: #3d3d3d;
+}
+
+.sub-menu .is-child {
+  padding-left: 15px;
 }
 
 .section-right {
@@ -47,14 +53,6 @@
   border-left: solid 5px #57c6f8;
 }
 
-.active.child-menu {
-  padding-left: 30px;
-}
-
-.active.no-child {
-  padding-left: -2px;
-}
-
-.child-menu {
-  padding-left: 35px;
+.active p {
+  margin-left: 15px;
 }
