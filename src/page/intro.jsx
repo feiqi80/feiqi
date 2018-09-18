@@ -9,7 +9,7 @@ class Intro extends Component {
     this.state = {
       companyName: "附件的控件逢狼时刻带附件",
       companyYear: "2019",
-      cid: props.match.params.id,
+      cid: props.match.params.id ? props.match.params.id : 99999,
       userList: [
         {id: 1, name: "mary"},
         {id: 2, name: "billy"},
