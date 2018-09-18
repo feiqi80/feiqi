@@ -135,7 +135,7 @@ class MenuItem extends Component {
   render() {
     const menu = this.list.map((one, i) => {
       return (
-        <div key={i} className={(one.isActive ? "active" : "") + (one.isChileMenu ? " child-menu" : "")} onClick={(e) => this.props.onClickMenu(one, e)}>
+        <div key={i} className={(one.isActive ? "active" : "") + (one.isChildMenu ? " child-menu" : "")} onClick={(e) => this.props.onClickMenu(one, e)}>
           {one.name}
           {one.isExpand 
             ?
