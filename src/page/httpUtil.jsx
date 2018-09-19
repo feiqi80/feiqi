@@ -1,3 +1,10 @@
+/**
+ * 请求接口 * 
+ * @param   options    请求配置（无特殊要求，只需传url即可）
+ *                     如果多个请求参数需要按顺序执行，则可在option中传async=false，此时该方法返回一个promise，同时回调方法失效 *                     具体
+ * @param   data       请求参数
+ * @param   callback   单个请求的回调
+ */
 function http(options, data, callback) {
 	let type = {"content-type": "application/json"},
 			headers = (() => {
