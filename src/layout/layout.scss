@@ -1,0 +1,125 @@
+// 头部
+.top-bar {
+  width: 100%;
+  height: 50px;
+  background: #006cb8;
+  // 头像
+  .arrow {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -27px;
+    color: #fff;
+  }
+  .arrow-up {
+    display: none;
+  }
+  .div-userpic {
+    position: relative;
+    height: 88%;
+    float: right;
+    margin: 5px 15px 0 0;
+  }
+  .div-userpic .menu {
+    display: none;
+    position: absolute;
+    top: 44px;
+    left: -30px;
+    width: 150%;
+    text-align: center;  
+    background: #fff;
+    border: solid 1px #ddd;
+    box-shadow: 0 0 10px #333;
+    font-size: 15px;
+  }
+  .div-userpic .menu span {
+    height: 30px;
+    line-height: 28px;
+    width: 100%;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .div-userpic .menu span:hover {
+    background: #006cb8;
+    color: #fff;
+  }
+  .div-userpic:hover .menu {
+    display: block;
+  }
+  .div-userpic:hover .arrow-up {
+    display: inline-block;
+  }
+  .div-userpic:hover .arrow-down {
+    display: none;
+  }
+  .div-userpic img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+}
+
+// 内容
+.section {
+  width: 100%;
+  height: calc(100% - 50px);
+  // 左侧菜单
+  .section-left {
+    width: 140px;
+    height: 100%;
+    background: #3c4a57;
+    overflow: auto;
+    white-space: nowrap;
+    float: left;
+    font-size: 15px;
+    color: #adb3b8;
+
+    .adjust-menu {
+      height: 30px;
+    }
+
+    p {
+      margin: 0 0 0 20px;
+      height: 35px;
+      line-height: 35px;
+      cursor: pointer;
+      position: relative;
+    }
+    
+    span {
+      position: absolute;
+      right: 20px;
+    }
+    
+    .active {
+      color: #fff;
+      background: #677e94;
+      border-left: solid 5px #57c6f8;
+      p {
+        margin-left: 15px;
+      }
+    }
+
+    .no-child:not(.active):hover {
+      background: #333;
+      color: #fff;
+    }
+    
+    .sub-menu {
+      background: #3d3d3d;
+      .is-child {
+        padding-left: 15px;
+      }
+    }    
+    
+  }
+  // 右侧路由内容
+  .section-right {
+    padding: 15px;
+    width: calc(100% - 170px); // 加上左右padding:15
+    height: calc(100% - 30px); // 加上上下padding:15
+    float: left;
+  }
+
+
+
+}

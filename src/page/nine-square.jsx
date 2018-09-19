@@ -9,7 +9,7 @@ import React, { Component } from 'react';
  */
 function Square(props) {
   return (
-    <button className="square" onClick={props.onClick}>
+    <button style={{width: "30px", height: "30px", padding: 0}} onClick={props.onClick}>
       {props.value ? `${props.value}${props.type}` : ''}
     </button>
   );
@@ -26,7 +26,7 @@ class Board extends Component {
     return (
       <Square
         value={this.props.squares[i]}
-        type={`这是${i}`}
+        type={`${i}`}
         onClick={() => this.props.onClick(obj)}
       />
     );
@@ -35,17 +35,17 @@ class Board extends Component {
   render() {
     return (
       <div>
-        <div className="board-row">
+        <div style={{display: "flex"}}>
           {this.renderSquare(0)}
           {this.renderSquare(1)}
           {this.renderSquare(2)}
         </div>
-        <div className="board-row">
+        <div style={{display: "flex"}}>
           {this.renderSquare(3)}
           {this.renderSquare(4)}
           {this.renderSquare(5)}
         </div>
-        <div className="board-row">
+        <div style={{display: "flex"}}>
           {this.renderSquare(6)}
           {this.renderSquare(7)}
           {this.renderSquare(8)}
@@ -102,8 +102,8 @@ class Game extends Component {
     const moves = history.map((ele, i) => {
       console.log(ele, i);
       const desc = i ?
-        'Go to move #' + i :
-        'Go to game start';
+        `回到第${i}步` :
+        '回到开始';
       return (
         <li key={i}>
           <button onClick={() => this.jumpTo(i)}>{desc}</button>
@@ -113,9 +113,9 @@ class Game extends Component {
 
     let status;
     if (winner) {
-      status = 'Winner: ' + winner;
+      status = '胜利者: ' + winner;
     } else {
-      status = 'Next player: ' + (this.state.isNext ? 'X' : 'O');
+      status = '下一个棋手: ' + (this.state.isNext ? 'X' : 'O');
     }
     return (
       <div className="game">

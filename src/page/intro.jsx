@@ -7,7 +7,7 @@ class Intro extends Component {
     console.log(props.match.params);
 
     this.state = {
-      companyName: "附件的控件逢狼时刻带附件",
+      companyName: "上海杰森斯坦森梁山粮食粮米有限责任公司",
       companyYear: "2019",
       cid: props.match.params.id ? props.match.params.id : 99999,
       userList: [
