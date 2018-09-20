@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import male from  "../assets/img/male.png"
+import male from  "../assets/img/male.png";
 
 class Header extends Component {
   render() {
@@ -7,8 +7,8 @@ class Header extends Component {
       <div className="top-bar">
           <div className="div-userpic"> 
             <img src={male} alt="" />
-            <span className="arrow arrow-up">▲</span>
-            <span className="arrow arrow-down">▼</span>
+            <i className='fa fa-angle-up' />
+            <i className='fa fa-angle-down' />
             <div className="menu">
               <span>退出</span>
             </div>

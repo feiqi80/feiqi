@@ -142,7 +142,7 @@ class MenuItem extends Component {
           <p>
             {one.name}
             {one.children
-            ? <span>{one.isExpand ? "▲" : "▼"}</span>
+            ? <i className={`fa fa-angle-${one.isExpand ? "up" : "down"}`} />
             : null
           }
           </p>          
