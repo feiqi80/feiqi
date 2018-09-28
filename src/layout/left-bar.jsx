@@ -92,20 +92,23 @@ class Leftbar extends Component {
   clickMenu = (obj, e) => {
     let ev = e || window.event;
     ev.stopPropagation();
-    let list = "";
     if (obj.children) {
       obj.isExpand = !obj.isExpand;
+      this.setState({
+        menuList: this.state.menuList
+      });
     } else {
       if (obj.url !== this.props.location.pathname) { // 点自己不跳转
         console.log("当前是自己");
         obj.isActive = true;
         this.props.history.push(obj.url);
-        list = this.setMenuList(this.state.menuList, obj);
+        let list = this.setMenuList(this.state.menuList, obj);
+        this.setState({
+          menuList: list
+        });
       }      
     }
-    this.setState({
-      menuList: list ? list : this.state.menuList
-    });
+    
   }
   /**
    * 根据菜单对象设置匹配当前路由的菜单
