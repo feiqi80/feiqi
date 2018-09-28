@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Modal from "../common/modal";
 
 class Intro extends Component {
 
@@ -15,7 +16,8 @@ class Intro extends Component {
         {id: 2, name: "billy"},
         {id: 3, name: "terry"},
         {id: 4, name: "andy"},
-      ]
+      ],
+      isShowModal: false
     }
   }
 
@@ -49,9 +51,24 @@ class Intro extends Component {
     );
   }
 
+  clickModal = () => {
+    console.log("点击弹窗");
+    this.setState((prevState, props) => ({
+        isShowModal: !prevState.isShowModal
+      })
+    );
+  }
+
   render() {
-    console.log("about render一次", this.state.cid);
+    console.log("about render一次", this.state.isShowModal);
     const clickBtn = <button className="btn" onClick={() => this.changeCid(4)}>点击</button>; 
+    
+    const modal = <div>
+                    {this.state.isShowModal
+                      ?<Modal showModal={this.clickModal} style={{width: "200px", height: "300px", background: "red"}}>xxxxxxxxx</Modal>
+                      :null
+                    }
+                  </div>
 
     return (
       <div className="App">        
@@ -63,6 +80,8 @@ class Intro extends Component {
         { this.state.userList.map(this.renderList) }
         { this.state.cid === 3 && "公司cid3"}
         { this.state.cid === 4  && "公司cid4"}
+        <button onClick={this.clickModal}>测试弹窗</button>
+        {modal}
       </div>
     );
   }

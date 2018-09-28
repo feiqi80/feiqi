@@ -30,14 +30,21 @@ class Leftbar extends Component {
     let path = this.props.location.pathname;
     this.resetState(path);
   } 
+
+  componentDidMount() {
+    console.log("渲染页面结束");
+  }
   /**
    * 进入页面前将要接收的参数（只在路由跳转、前进/后退时触发）
    * @param  props  接受的参数 
    */
   componentWillReceiveProps(props) {
-    console.log("将要接受props", props);
-    let path = props.location.pathname;
-    this.resetState(path);
+    console.log("将要接受props", (props.location.pathname !== this.props.location.pathname));
+    if (props.location.pathname !== this.props.location.pathname) {
+      console.log("调整菜单");
+      let path = props.location.pathname;
+      this.resetState(path);
+    }    
   }
   /**
    * 在刷新、前进、后退时重新设置菜单的状态
@@ -89,9 +96,12 @@ class Leftbar extends Component {
     if (obj.children) {
       obj.isExpand = !obj.isExpand;
     } else {
-      obj.isActive = true;
-      this.props.history.push(obj.url);
-      list = this.setMenuList(this.state.menuList, obj);
+      if (obj.url !== this.props.location.pathname) { // 点自己不跳转
+        console.log("当前是自己");
+        obj.isActive = true;
+        this.props.history.push(obj.url);
+        list = this.setMenuList(this.state.menuList, obj);
+      }      
     }
     this.setState({
       menuList: list ? list : this.state.menuList
@@ -117,6 +127,7 @@ class Leftbar extends Component {
   }
 
   render() {
+    console.log("leftBar进入render");
     return (
       <div>
         <div className="adjust-menu">
