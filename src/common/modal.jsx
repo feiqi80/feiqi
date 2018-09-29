@@ -1,48 +1,26 @@
-import { Component } from 'react';
-import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+// import ReactDOM from 'react-dom';
+// import PropTypes from 'prop-types';
+import ModalBody from "./modal_body";
 
-function Modal() {
-  class Portal extends Component {    
+  class Modal extends Component {    
     constructor(props) {    
       super(props);  
-      console.log(props); 
-      this.el = document.createElement('div');    
-      if (props) {    
-        this.el.id = props.id || "modal";    
-        if (props.className) {
-          this.el.className = props.className || "modal";
-        }     
-        if (props.style) {
-          Object.keys(props.style).map((v) => {
-            this.el.style[v] = props.style[v];
-            return null;
-          });
-        }
-        this.el.onclick = props.showModal;    
-        document.body.appendChild(this.el);
-      }    
+      console.log(props);     
     }
 
     componentDidMount() {
-      document.body.appendChild(this.el);
     }
     
-    componentWillUnmount() {    
-      document.body.removeChild(this.el);    
+    componentWillUnmount() {  
     }
     
     render() {    
-      return ReactDOM.createPortal(    
-        this.props.children,    
-        this.el    
-      )    
+      return [    
+        <div key="modal" className="modal" onClick={this.props.options.closeBtn}></div>,
+        <ModalBody key="modal-body" options={this.props.options} />
+      ]    
     }    
   }
-  Portal.propTypes = {    
-    style: PropTypes.object   
-  }   
-  return Portal;
-}
 
-export default Modal();
+export default Modal;

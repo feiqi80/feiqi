@@ -1,4 +1,4 @@
-#modal {
+.modal {
   background-color: rgba(0,0,0,0.5);
   position: fixed;
   height: 100%;
@@ -8,6 +8,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  
+}
+
+.modal-layer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+  }
+
+.modal-layer {
+  margin: 0 auto;
+  background: #fff;
+  width: 400px;
+  height: 200px;
 }
 
 // 头部

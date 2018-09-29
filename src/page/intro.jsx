@@ -17,7 +17,8 @@ class Intro extends Component {
         {id: 3, name: "terry"},
         {id: 4, name: "andy"},
       ],
-      isShowModal: false
+      isShowModal: false,
+      num: 0,
     }
   }
 
@@ -52,20 +53,40 @@ class Intro extends Component {
   }
 
   clickModal = () => {
-    console.log("点击弹窗");
+    console.log("点击弹窗");    
     this.setState((prevState, props) => ({
         isShowModal: !prevState.isShowModal
       })
     );
   }
 
+  okBtn = (param) => {
+    console.log(param);
+    this.setState({
+      num: param
+    });
+  }
+
   render() {
     console.log("about render一次", this.state.isShowModal);
     const clickBtn = <button className="btn" onClick={() => this.changeCid(4)}>点击</button>; 
-    
+    const style = {
+      width: "200px",
+      height: "300px",
+      background: "red"
+    }
+    let value = this.state.num;
+    let options = {
+      type: "confirm",
+      title: "回传参数",
+      okBtn: this.okBtn,
+      closeBtn: this.clickModal,
+      params: value,
+      style: style
+    }
     const modal = <div>
                     {this.state.isShowModal
-                      ?<Modal showModal={this.clickModal} style={{width: "200px", height: "300px", background: "red"}}>xxxxxxxxx</Modal>
+                      ?<Modal options={options}>xxxxxxxxx</Modal>
                       :null
                     }
                   </div>
@@ -81,6 +102,7 @@ class Intro extends Component {
         { this.state.cid === 3 && "公司cid3"}
         { this.state.cid === 4  && "公司cid4"}
         <button onClick={this.clickModal}>测试弹窗</button>
+        <div>弹窗回传的参数：{this.state.num}</div>
         {modal}
       </div>
     );
