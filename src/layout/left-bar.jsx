@@ -17,8 +17,9 @@ class Leftbar extends Component {
         { id: 5, name: "菜单3", isActive: false, pid: 0, url: "/game", isChildMenu: 0, },
         { id: 6, name: "菜单4", isExpand: false, pid: 0, url: "", isChildMenu: 0, children: [
           { id: 7, name: "菜单4-1", isActive: false, pid: 6, url: "/intro", isChildMenu: 1, },
-        ]
-      },
+        ]},
+        { id: 8, name: "菜单5", isActive: false, pid: 0, url: "/show-file", isChildMenu: 0, },
+        { id: 9, name: "菜单7", isActive: false, pid: 0, url: "/drag-drop", isChildMenu: 0, },
       ]
     };    
   }

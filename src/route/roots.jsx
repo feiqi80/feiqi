@@ -5,6 +5,8 @@ import Intro from '../page/intro';
 import CalcTemp from '../page/calcTemp';
 import Leftbar from "../layout/left-bar";
 import {DemoA, DemoB}  from "../page/demoPage";
+import showFile from "../page/showFile";
+import DragDrop from "../page/dragdrop";
 
 const Main = () => <div><h1>hellow, world!</h1></div>
 
@@ -23,6 +25,8 @@ class Roots extends Component {
             <Route exact path="/calc" component={CalcTemp} />
             <Route exact path="/demoa" component={DemoA} />
             <Route exact path="/demob" component={DemoB} />
+            <Route exact path="/show-file" component={showFile} />
+            <Route exact path="/drag-drop" component={DragDrop} />
           </div>
         </div>
     </Router>
