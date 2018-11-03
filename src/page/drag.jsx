@@ -8,13 +8,6 @@ const labelList = [
   {name: "gender", label: "性别"}
 ]
 class Drag extends Component {
-  constructor(props) {
-    super(props);
-    console.log(props);
-  }
-
-  componentWillReceiveProps(props, prop) {
-  }
 
   render() {
     const div = labelList.map((one, i) => {

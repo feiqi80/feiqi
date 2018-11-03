@@ -4,7 +4,6 @@ import {Types} from "./dragType";
 
 const cardSource = {
   beginDrag(props, monitor) {
-    console.log("Source====", props, monitor);
     return props.label;
   },
 
@@ -24,13 +23,6 @@ function collect(connect, monitor) {
 
 
 class DragItem extends Component {
-  constructor(props) {
-    super(props);
-    console.log(props);
-  }
-
-  componentWillReceiveProps(props, prop) {
-  }
 
   render() {
     const { connectDragSource } = this.props;

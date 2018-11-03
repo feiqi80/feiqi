@@ -5,16 +5,6 @@ import Drag from "./drag";
 import Drop from "./drop";
 
 class DragDrop extends Component {
-  
-  constructor(props) {
-    super(props);
-    console.log(props);
-  }
-
-  
-  componentWillReceiveProps(props) {
-    console.log("外层reviece===", props);
-  }
 
   render() {
     return (

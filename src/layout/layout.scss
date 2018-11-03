@@ -147,7 +147,6 @@
 
   .drag-drop {
     height: 100%;
-    // overflow: auto;
     .dragging {
       background: green;
     }
@@ -175,8 +174,25 @@
         }
       }
     }
+    .pic-area {
+      width: 600px;
+      float: left;
+      height: 102%;
+      overflow: auto;
+    }
     .label-drop {
       position: absolute;
+    }
+    .no-over {
+      width: 450px;
+      height: 500px;
+      border: solid 2px #999;
+      position: relative;
+      margin: 0 auto;
+      margin-bottom: 20px;
+    }
+    .is-over {
+      border: solid 2px #f50;
     }
   }
   
